@@ -53,7 +53,7 @@ func add(c echo.Context) error {
 
 	todos = append(todos, t)
 
-	return nil
+	return c.Render(http.StatusOK, "new.html", t)
 }
 
 func main() {
