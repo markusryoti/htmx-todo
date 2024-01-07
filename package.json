@@ -1,0 +1,17 @@
+{
+	"name": "htmx-todo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "tailwind.config.js",
+	"scripts": {
+		"build": "npx tailwindcss -i ./public/css/main.css -o ./public/css/tailwind.css",
+		"watch": "watch 'npm run build' ./public"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"tailwindcss": "^3.4.0",
+		"watch": "^1.0.2"
+	}
+}

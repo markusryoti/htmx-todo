@@ -1,0 +1,14 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+		<link rel="stylesheet" href="/public/css/tailwind.css" />
+		<title>{{ template "title" . }}</title>
+	</head>
+	<body>
+		{{ template "body" . }}
+	</body>
+</html>
+{{end}}
