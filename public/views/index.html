@@ -3,7 +3,7 @@
 <h1 class="text-3xl font-bold">{{ .Name }}</h1>
 
 <form
-	hx-post="/add"
+	hx-post="/todos/add"
 	hx-target="#todo-list"
 	hx-swap="beforeend"
 	hx-on::after-request="this.reset()"
@@ -31,6 +31,24 @@
 
 <ul id="todo-list" class="py-4">
 	{{ range $todo := .Todos}}
-	<li>{{ $todo.Name }}</li>
+	<li id="todo-{{ $todo.Id }}">
+		{{ if $todo.Done }}
+		<span class="line-through"> {{ $todo.Name }} </span>
+		{{ else }}
+		<span> {{ $todo.Name }} </span>
+		{{ end }}
+		<a
+			hx-delete="/todos/{{ $todo.Id }}"
+			hx-target="#todo-{{ .Id }}"
+			hx-swap="delete"
+			>X</a
+		>
+		<a
+			hx-patch="/todos/{{ .Id }}"
+			hx-target="#todo-{{ .Id }}"
+			hx-swap="outerHTML"
+			>Toggle</a
+		>
+	</li>
 	{{end}} {{ end }}
 </ul>

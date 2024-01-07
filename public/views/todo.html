@@ -1,0 +1,13 @@
+<li id="todo-{{ .Id }}">
+	{{ if .Done }}
+	<span class="line-through"> {{ .Name }} </span>
+	{{ else }}
+	<span> {{ .Name }} </span>
+	{{ end }}
+	<a hx-delete="/todos/{{ .Id }}" hx-target="#todo-{{ .Id }}" hx-swap="delete"
+		>X</a
+	>
+	<a hx-patch="/todos/{{ .Id }}" hx-target="#todo-{{ .Id }}" hx-swap="outerHTML"
+		>Toggle</a
+	>
+</li>
