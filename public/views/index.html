@@ -32,23 +32,24 @@
 <ul id="todo-list" class="py-4">
 	{{ range $todo := .Todos}}
 	<li id="todo-{{ $todo.Id }}">
-		{{ if $todo.Done }}
-		<span class="line-through"> {{ $todo.Name }} </span>
-		{{ else }}
-		<span> {{ $todo.Name }} </span>
-		{{ end }}
+		<span
+			hx-patch="/todos/{{ .Id }}"
+			hx-target="#todo-{{ .Id }}"
+			hx-swap="outerHTML"
+		>
+			{{ if $todo.Done }}
+			<span class="line-through"> {{ $todo.Name }} </span>
+			{{ else }}
+			<span> {{ $todo.Name }} </span>
+			{{ end }}
+		</span>
 		<a
 			hx-delete="/todos/{{ $todo.Id }}"
 			hx-target="#todo-{{ .Id }}"
 			hx-swap="delete"
-			>X</a
 		>
-		<a
-			hx-patch="/todos/{{ .Id }}"
-			hx-target="#todo-{{ .Id }}"
-			hx-swap="outerHTML"
-			>Toggle</a
-		>
+			X
+		</a>
 	</li>
 	{{end}} {{ end }}
 </ul>
