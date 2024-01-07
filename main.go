@@ -96,7 +96,7 @@ func remove(c echo.Context) error {
 		return c.String(http.StatusBadRequest, "bad request")
 	}
 
-	updatedTodos := make([]*Todo, len(todos))
+	updatedTodos := make([]*Todo, 0)
 
 	for _, todo := range todos {
 		if todo.Id != t.Id {
