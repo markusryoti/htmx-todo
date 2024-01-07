@@ -67,7 +67,7 @@ func add(c echo.Context) error {
 
 	todos = append(todos, t)
 
-	return c.Render(http.StatusOK, "todo.html", t)
+	return c.Render(http.StatusOK, "edited-todo.html", t)
 }
 
 func toggle(c echo.Context) error {
@@ -85,7 +85,7 @@ func toggle(c echo.Context) error {
 		}
 	}
 
-	return c.Render(http.StatusOK, "todo.html", t)
+	return c.Render(http.StatusOK, "edited-todo.html", t)
 }
 
 func remove(c echo.Context) error {

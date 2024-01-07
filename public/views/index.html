@@ -30,26 +30,6 @@
 </form>
 
 <ul id="todo-list" class="py-4">
-	{{ range $todo := .Todos}}
-	<li id="todo-{{ $todo.Id }}">
-		<span
-			hx-patch="/todos/{{ .Id }}"
-			hx-target="#todo-{{ .Id }}"
-			hx-swap="outerHTML"
-		>
-			{{ if $todo.Done }}
-			<span class="line-through"> {{ $todo.Name }} </span>
-			{{ else }}
-			<span> {{ $todo.Name }} </span>
-			{{ end }}
-		</span>
-		<a
-			hx-delete="/todos/{{ $todo.Id }}"
-			hx-target="#todo-{{ .Id }}"
-			hx-swap="delete"
-		>
-			X
-		</a>
-	</li>
-	{{end}} {{ end }}
+	{{ range $todo := .Todos }} {{ template "todotemplate" $todo }} {{ end }} {{
+	end }}
 </ul>

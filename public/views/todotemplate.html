@@ -1,3 +1,4 @@
+{{ define "todotemplate" }}
 <li id="todo-{{ .Id }}">
 	<span
 		hx-patch="/todos/{{ .Id }}"
@@ -14,3 +15,4 @@
 		X
 	</a>
 </li>
+{{ end }}
