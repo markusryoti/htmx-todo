@@ -1,18 +1,26 @@
-{{ define "todotemplate" }}
-<li id="todo-{{ .Id }}">
-	<span
+{{ block "todotemplate" . }}
+<li id="todo-{{ .Id }}" class="flex py-1">
+	<div
 		hx-patch="/todos/{{ .Id }}"
 		hx-target="#todo-{{ .Id }}"
 		hx-swap="outerHTML"
+		class="flex items-center p-1 w-full"
 	>
 		{{ if .Done }}
 		<span class="line-through"> {{ .Name }} </span>
 		{{ else }}
 		<span> {{ .Name }} </span>
 		{{ end }}
-	</span>
-	<a hx-delete="/todos/{{ .Id }}" hx-target="#todo-{{ .Id }}" hx-swap="delete">
-		X
-	</a>
+	</div>
+	<div>
+		<a
+			hx-delete="/todos/{{ .Id }}"
+			hx-target="#todo-{{ .Id }}"
+			hx-swap="delete"
+			class="block text-center w-8 leading-8 rounded-2xl bg-red-600 text-white font-bold cursor-pointer"
+		>
+			x
+		</a>
+	</div>
 </li>
 {{ end }}

@@ -7,10 +7,10 @@
 	hx-target="#todo-list"
 	hx-swap="beforeend"
 	hx-on::after-request="this.reset()"
-	class="py-4"
+	class="py-8"
 >
 	<h4 class="text-xl">Add new</h4>
-	<div class="py-2">
+	<div class="py-4">
 		<label for="add" class="block text-sm font-medium leading-6"
 			>Todo Name</label
 		>
@@ -18,18 +18,23 @@
 			type="text"
 			id="add"
 			name="name"
-			class="block flex-1 border-2 rounded-lg bg-transparent py-1.5 pl-1 text-gray-900 focus:ring-0"
+			class="block border rounded-lg w-full md:w-1/2 py-1.5 pl-1 text-gray-900"
 		/>
 	</div>
 	<button
 		type="submit"
-		class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		class="bg-blue-500 hover:bg-blue-700 text-white w-full md:w-48 font-bold py-2 px-4 rounded"
 	>
 		Add
 	</button>
 </form>
 
-<ul id="todo-list" class="py-4">
-	{{ range $todo := .Todos }} {{ template "todotemplate" $todo }} {{ end }} {{
-	end }}
-</ul>
+<hr />
+
+<div class="py-6">
+	<h4 class="text-xl">Todos</h4>
+	<ul id="todo-list" class="py-4">
+		{{ range $todo := .Todos }} {{ template "todotemplate" $todo }} {{ end }}
+	</ul>
+</div>
+{{ end }}

@@ -9,23 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-var todos []*Todo = []*Todo{
-	{
-		Id:   "9dc042ac-868e-450f-a0be-f4d504668609",
-		Name: "Eat",
-		Done: false,
-	},
-	{
-		Id:   "4852890a-74c1-4737-9bda-885b7723a5fc",
-		Name: "Ski",
-		Done: false,
-	},
-	{
-		Id:   "245c75a2-34c9-4544-9e16-95cd820d857a",
-		Name: "Code",
-		Done: true,
-	},
-}
+var todos []*Todo
 
 type Todo struct {
 	Id   string `param:"id"`
@@ -49,7 +33,7 @@ type Home struct {
 
 func home(c echo.Context) error {
 	return c.Render(http.StatusOK, "index.html", &Home{
-		Name:  "My Todos",
+		Name:  "A killer htmx todo app",
 		Title: "Home",
 		Todos: todos,
 	})
