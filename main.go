@@ -1,9 +1,9 @@
 package main
 
 import (
+	"html/template"
 	"io"
 	"net/http"
-	"text/template"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
@@ -51,7 +51,7 @@ func add(c echo.Context) error {
 
 	todos = append(todos, t)
 
-	return c.Render(http.StatusOK, "edited-todo.html", t)
+	return c.Render(http.StatusOK, "todo.html", t)
 }
 
 func toggle(c echo.Context) error {
@@ -69,7 +69,7 @@ func toggle(c echo.Context) error {
 		}
 	}
 
-	return c.Render(http.StatusOK, "edited-todo.html", t)
+	return c.Render(http.StatusOK, "todo.html", t)
 }
 
 func remove(c echo.Context) error {

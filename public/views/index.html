@@ -34,7 +34,7 @@
 <div class="py-6">
 	<h4 class="text-xl">Todos</h4>
 	<ul id="todo-list" class="py-4">
-		{{ range $todo := .Todos }} {{ template "todotemplate" $todo }} {{ end }}
+		{{ range $todo := .Todos }} {{ template "todo" $todo }} {{ end }}
 	</ul>
 </div>
 {{ end }}
